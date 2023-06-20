@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate footer</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head> 
+<body>
+    <script>
+        generateFooter(["+7(999)999-99-99", "Эл. почта: example@gmail.com", "Адрес: г. Разработчик, ул. Подвальная, д. 5"], "Best site ever", 'brown', 'white');
+
+       
+        function generateFooter(contacts, title, bgcolor, fontcolor){
+
+            var contactsFooter = '';
+            if(Array.isArray(contacts)){
+                for(var i = 0; i < contacts.length; i++){
+                    contactsFooter += `<p>${contacts[i]}</p>`;
+                }
+            }
+
+            document.write(
+                `<footer style="background-color: ${bgcolor}; color: ${fontcolor};">
+                    <div class="contacts">
+                        ${contactsFooter}
+                    </div>
+                    <div class="sitename">
+                        <p>${title} &copy;2023 г.</p>
+                    </div>
+                </footer>`
+            );
+        }
+    </script>
+</body>
+</html>
